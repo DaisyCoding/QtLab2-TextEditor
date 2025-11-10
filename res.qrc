@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/">
+        <file>img/new_window_24dp_000000_FILL0_wght400_GRAD0_opsz24.png</file>
+        <file>img/COPY.png</file>
+        <file>img/CUT.png</file>
+        <file>img/EXIT.png</file>
+        <file>img/FIND.png</file>
+        <file>img/FONT.png</file>
+        <file>img/OPEN.png</file>
+        <file>img/PASTE.png</file>
+        <file>img/REDO.png</file>
+        <file>img/REPLACE.png</file>
+        <file>img/SAVE AS.png</file>
+        <file>img/SAVE.png</file>
+        <file>img/SELECT ALL.png</file>
+        <file>img/UNDO.png</file>
+        <file>img/WRAP.png</file>
+        <file>img/SHOWLINENUMBER.png</file>
+        <file>img/SHOWSTATUSBAR.png</file>
+        <file>img/SHOWTOOLBAR.png</file>
+    </qresource>
+</RCC>
