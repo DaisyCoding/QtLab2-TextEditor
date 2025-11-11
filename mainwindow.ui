@@ -78,6 +78,7 @@
     <property name="title">
      <string>帮助(&amp;H)</string>
     </property>
+    <addaction name="actionAbout"/>
    </widget>
    <addaction name="menu"/>
    <addaction name="menu_E"/>
@@ -439,6 +440,15 @@
   <action name="action_7">
    <property name="text">
     <string>编辑器背景颜色</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/Downloads/information.png</normaloff>:/Downloads/information.png</iconset>
+   </property>
+   <property name="text">
+    <string>关于(&amp;A)</string>
    </property>
   </action>
  </widget>

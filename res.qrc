@@ -18,5 +18,7 @@
         <file>img/SHOWLINENUMBER.png</file>
         <file>img/SHOWSTATUSBAR.png</file>
         <file>img/SHOWTOOLBAR.png</file>
+        <file>../../DANK1NG.jpg</file>
+        <file>../../../Downloads/information.png</file>
     </qresource>
 </RCC>
