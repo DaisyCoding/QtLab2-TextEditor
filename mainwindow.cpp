@@ -5,6 +5,9 @@
 #include "replacedialog.h"
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QColorDialog>
+#include <QFontDialog>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -26,6 +29,24 @@ MainWindow::MainWindow(QWidget *parent)
     QLabel *author = new QLabel(ui->statusbar);
     author->setText(tr("章皖俊"));
     ui->statusbar->addPermanentWidget(author);
+
+    ui->actionUndo->setEnabled(false);
+    ui->actionRedo->setEnabled(false);
+    ui->actionCopy->setEnabled(false);
+    ui->actionCut->setEnabled(false);
+    ui->actionPlate->setEnabled(false);
+
+    QPlainTextEdit::LineWrapMode mode = ui->TextEdit->lineWrapMode();
+    if(mode == QTextEdit::NoWrap){
+        ui->TextEdit->setLineWrapMode(QPlainTextEdit::WidgetWidth);
+        ui->actionWrap->setChecked(false);
+    }
+    else{
+        ui->TextEdit->setLineWrapMode(QPlainTextEdit::NoWrap);
+        ui->actionWrap->setChecked(true);
+    }
+    ui->actionShowStatusBar->setChecked(true);
+    ui->actionShowToolBar->setChecked(true);
 }
 
 MainWindow::~MainWindow()
@@ -233,12 +254,15 @@ void MainWindow::on_actionUndo_triggered()
 void MainWindow::on_actionCut_triggered()
 {
     ui->TextEdit->cut();
+    ui->actionPlate->setEnabled(true);
+
 }
 
 
 void MainWindow::on_actionCopy_triggered()
 {
     ui->TextEdit->copy();
+    ui->actionPlate->setEnabled(true);
 }
 
 
@@ -256,19 +280,99 @@ void MainWindow::on_actionRedo_triggered()
 
 void MainWindow::on_TextEdit_copyAvailable(bool b)
 {
-    ui->actionCopy->setVisible(b);
-    ui->actionCut->setActionGroup(b);
+    ui->actionCopy->setEnabled(b);
+    ui->actionCut->setEnabled(b);
 }
 
 
 void MainWindow::on_TextEdit_redoAvailable(bool b)
 {
-    ui->actionRedo->setVisible(b);
+    ui->actionRedo->setEnabled(b);
 }
 
 
 void MainWindow::on_TextEdit_undoAvailable(bool b)
 {
-    ui->actionUndo->setVisible(b);
+    ui->actionUndo->setEnabled(b);
+}
+
+
+void MainWindow::on_actionFontColor_triggered()
+{
+    QColor color = QColorDialog::getColor(Qt::black,this,"选择颜色");
+    if(color.isValid())
+    {
+        ui->TextEdit->setStyleSheet(QString("QPlainTextEdit{color : %1}").arg(color.name()));
+    }
+}
+
+
+void MainWindow::on_actionFontBgColor_triggered()
+{
+    QColor color = QColorDialog::getColor(Qt::black,this,"选择颜色");
+    if(color.isValid())
+    {
+        ui->TextEdit->setStyleSheet(QString("QPlainTextEdit{background-color : %1}").arg(color.name()));
+    }
+}
+
+
+void MainWindow::on_actionEditorBgColor_triggered()
+{
+
+}
+
+
+void MainWindow::on_actionWrap_triggered()
+{
+    QPlainTextEdit::LineWrapMode mode = ui->TextEdit->lineWrapMode();
+    if(mode == QTextEdit::NoWrap){
+        ui->TextEdit->setLineWrapMode(QPlainTextEdit::WidgetWidth);
+        ui->actionWrap->setChecked(true);
+    }
+    else{
+        ui->TextEdit->setLineWrapMode(QPlainTextEdit::NoWrap);
+        ui->actionWrap->setChecked(false);
+    }
+}
+
+
+void MainWindow::on_actionFont_triggered()
+{
+    bool ok = false;
+    QFont font = QFontDialog::getFont(&ok,this);
+    if(ok)
+    {
+        ui->TextEdit->setFont(font);
+    }
+}
+
+
+void MainWindow::on_actionShowToolBar_triggered()
+{
+    bool visible = ui->toolBar->isVisible();
+    ui->toolBar->setVisible(!visible);
+    ui->actionShowToolBar->setChecked(!visible);
+}
+
+
+void MainWindow::on_actionShowStatusBar_triggered()
+{
+    bool visible = ui->statusbar->isVisible();
+    ui->statusbar->setVisible(!visible);
+    ui->actionShowStatusBar->setChecked(!visible);
+}
+
+
+void MainWindow::on_actionSelectAll_triggered()
+{
+    ui->TextEdit->selectAll();
+}
+
+
+void MainWindow::on_actionExit_triggered()
+{
+    if(userEditConfirmed())
+        exit(0);
 }
 

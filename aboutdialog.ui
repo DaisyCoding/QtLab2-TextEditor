@@ -99,11 +99,15 @@
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>130</y>
-     <width>53</width>
-     <height>15</height>
+     <x>30</x>
+     <y>80</y>
+     <width>181</width>
+     <height>171</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+border-image: url(:/img/DANK1NG.jpg);</string>
    </property>
    <property name="text">
     <string/>

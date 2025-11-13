@@ -62,10 +62,10 @@
     <addaction name="actionWrap"/>
     <addaction name="actionShowLineNumber"/>
     <addaction name="actionFont"/>
-    <addaction name="action_4"/>
+    <addaction name="actionFontColor"/>
     <addaction name="separator"/>
-    <addaction name="action_6"/>
-    <addaction name="action_7"/>
+    <addaction name="actionFontBgColor"/>
+    <addaction name="actionEditorBgColor"/>
    </widget>
    <widget class="QMenu" name="menu_V">
     <property name="title">
@@ -347,6 +347,9 @@
    </property>
   </action>
   <action name="actionWrap">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/img/WRAP.png</normaloff>:/img/WRAP.png</iconset>
@@ -398,6 +401,9 @@
    </property>
   </action>
   <action name="actionShowToolBar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/img/SHOWTOOLBAR.png</normaloff>:/img/SHOWTOOLBAR.png</iconset>
@@ -413,6 +419,9 @@
    </property>
   </action>
   <action name="actionShowStatusBar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/img/SHOWSTATUSBAR.png</normaloff>:/img/SHOWSTATUSBAR.png</iconset>
@@ -427,17 +436,17 @@
     <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
-  <action name="action_4">
+  <action name="actionFontColor">
    <property name="text">
     <string>字体颜色</string>
    </property>
   </action>
-  <action name="action_6">
+  <action name="actionFontBgColor">
    <property name="text">
     <string>字体背景颜色</string>
    </property>
   </action>
-  <action name="action_7">
+  <action name="actionEditorBgColor">
    <property name="text">
     <string>编辑器背景颜色</string>
    </property>
@@ -445,7 +454,7 @@
   <action name="actionAbout">
    <property name="icon">
     <iconset resource="res.qrc">
-     <normaloff>:/Downloads/information.png</normaloff>:/Downloads/information.png</iconset>
+     <normaloff>:/img/information.png</normaloff>:/img/information.png</iconset>
    </property>
    <property name="text">
     <string>关于(&amp;A)</string>
