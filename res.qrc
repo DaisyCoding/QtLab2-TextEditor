@@ -20,5 +20,7 @@
         <file>img/SHOWTOOLBAR.png</file>
         <file>../../DANK1NG.jpg</file>
         <file>../../../Downloads/information.png</file>
+        <file>img/DANK1NG.jpg</file>
+        <file>img/information.png</file>
     </qresource>
 </RCC>

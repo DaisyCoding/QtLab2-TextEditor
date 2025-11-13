@@ -243,8 +243,8 @@
   </action>
   <action name="actionCopy">
    <property name="icon">
-    <iconset>
-     <normaloff>img/COPY.png</normaloff>img/COPY.png</iconset>
+    <iconset resource="res.qrc">
+     <normaloff>:/img/COPY.png</normaloff>:/img/COPY.png</iconset>
    </property>
    <property name="text">
     <string>复制(&amp;T)</string>
@@ -330,8 +330,8 @@
   </action>
   <action name="actionFind">
    <property name="icon">
-    <iconset>
-     <normaloff>img/FIND.png</normaloff>img/FIND.png</iconset>
+    <iconset resource="res.qrc">
+     <normaloff>:/img/FIND.png</normaloff>:/img/FIND.png</iconset>
    </property>
    <property name="text">
     <string>查找(&amp;F)</string>
