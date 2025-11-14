@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>359</width>
-    <height>136</height>
+    <height>150</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -92,14 +92,14 @@
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout">
             <item>
-             <widget class="QRadioButton" name="raDown">
+             <widget class="QRadioButton" name="raUp">
               <property name="text">
                <string>向上(&amp;U)</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QRadioButton" name="raUp">
+             <widget class="QRadioButton" name="raDown">
               <property name="text">
                <string>向下(&amp;D)</string>
               </property>
