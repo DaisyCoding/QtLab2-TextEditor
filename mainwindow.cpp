@@ -47,6 +47,8 @@ MainWindow::MainWindow(QWidget *parent)
     }
     ui->actionShowStatusBar->setChecked(true);
     ui->actionShowToolBar->setChecked(true);
+    ui->actionShowLineNumber->setChecked(false);
+    on_actionShowLineNumber_triggered(false);
 }
 
 MainWindow::~MainWindow()
@@ -214,6 +216,10 @@ void MainWindow::on_TextEdit_textChanged()
         this->setWindowTitle("*"+this->windowTitle());
         textChanged = true;
     }
+
+    statusLabel.setText(("length:  "+QString::number(ui->TextEdit->toPlainText().length())+"  lines:  "
+                         +QString::number(ui->TextEdit->document()->lineCount())));
+
 }
 
 bool MainWindow::userEditConfirmed()
@@ -374,5 +380,34 @@ void MainWindow::on_actionExit_triggered()
 {
     if(userEditConfirmed())
         exit(0);
+}
+
+
+void MainWindow::on_TextEdit_cursorPositionChanged()
+{
+    int col =0;
+    int ln = 0;
+    int flg = -1;
+    int pos = ui->TextEdit->textCursor().position();
+    QString text = ui->TextEdit->toPlainText();
+
+    for(int i=0;i<pos;i++)
+    {
+        if(text[i]=='\n')
+        {
+            ln++;
+            flg = i;
+        }
+    }
+    flg++;
+    col = pos-flg;
+    statusCursorLabel.setText(("Ln:  "+QString::number(ln+1)+"  Col:  "+QString::number(col+1)));
+
+}
+
+
+void MainWindow::on_actionShowLineNumber_triggered(bool checked)
+{
+    ui->TextEdit->hideNumberArea(!checked);
 }
 

@@ -67,6 +67,12 @@ private slots:
 
     void on_actionExit_triggered();
 
+    void on_TextEdit_cursorPositionChanged();
+
+    void on_actionShowLineNumber_triggered();
+
+    void on_actionShowLineNumber_triggered(bool checked);
+
 private:
     Ui::MainWindow *ui;
 

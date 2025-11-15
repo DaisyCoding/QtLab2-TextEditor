@@ -16,7 +16,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QPlainTextEdit" name="TextEdit"/>
+     <widget class="CodeEditor" name="TextEdit"/>
     </item>
    </layout>
   </widget>
@@ -26,7 +26,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
@@ -383,6 +383,9 @@
    </property>
   </action>
   <action name="actionShowLineNumber">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/img/SHOWLINENUMBER.png</normaloff>:/img/SHOWLINENUMBER.png</iconset>
@@ -461,6 +464,13 @@
    </property>
   </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CodeEditor</class>
+   <extends>QPlainTextEdit</extends>
+   <header location="global">codeeditor.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="res.qrc"/>
  </resources>
